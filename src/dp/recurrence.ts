@@ -2,25 +2,33 @@ import type { FillEvent } from './types'
 
 export type ProblemId = 'knapsack' | 'edit' | 'lcs'
 
-/** The general recurrence, one case per line, for the panel header. */
-export function formulaFor(problem: ProblemId, unbounded = false): string[] {
+export interface FormulaCase {
+  expr: string
+  when: string
+}
+
+/** The general recurrence as (expression, condition) cases for the panel header. */
+export function formulaFor(problem: ProblemId, unbounded = false): FormulaCase[] {
   switch (problem) {
     case 'knapsack':
       return [
-        'dp[i][j] = dp[i−1][j]                        if wᵢ > j',
-        unbounded
-          ? 'dp[i][j] = max(dp[i−1][j], dp[i][j − wᵢ] + vᵢ)      otherwise'
-          : 'dp[i][j] = max(dp[i−1][j], dp[i−1][j − wᵢ] + vᵢ)    otherwise',
+        { expr: 'dp[i][j] = dp[i−1][j]', when: 'if wᵢ > j' },
+        {
+          expr: unbounded
+            ? 'dp[i][j] = max(dp[i−1][j], dp[i][j − wᵢ] + vᵢ)'
+            : 'dp[i][j] = max(dp[i−1][j], dp[i−1][j − wᵢ] + vᵢ)',
+          when: 'otherwise',
+        },
       ]
     case 'edit':
       return [
-        'dp[i][j] = dp[i−1][j−1]                                if aᵢ = bⱼ',
-        'dp[i][j] = 1 + min(dp[i−1][j−1], dp[i−1][j], dp[i][j−1])   otherwise',
+        { expr: 'dp[i][j] = dp[i−1][j−1]', when: 'if aᵢ = bⱼ' },
+        { expr: 'dp[i][j] = 1 + min(dp[i−1][j−1], dp[i−1][j], dp[i][j−1])', when: 'otherwise' },
       ]
     case 'lcs':
       return [
-        'dp[i][j] = dp[i−1][j−1] + 1                 if aᵢ = bⱼ',
-        'dp[i][j] = max(dp[i−1][j], dp[i][j−1])       otherwise',
+        { expr: 'dp[i][j] = dp[i−1][j−1] + 1', when: 'if aᵢ = bⱼ' },
+        { expr: 'dp[i][j] = max(dp[i−1][j], dp[i][j−1])', when: 'otherwise' },
       ]
   }
 }

@@ -36,9 +36,11 @@ describe('recurrence text', () => {
 
   it('has a two-case formula for every problem', () => {
     expect(formulaFor('knapsack')).toHaveLength(2)
-    expect(formulaFor('knapsack', true)[1]).toContain('dp[i][j − wᵢ]')
-    expect(formulaFor('edit')[1]).toContain('min')
-    expect(formulaFor('lcs')[1]).toContain('max')
+    expect(formulaFor('knapsack', true)[1].expr).toContain('dp[i][j − wᵢ]')
+    expect(formulaFor('knapsack')[1].expr).toContain('dp[i−1][j − wᵢ]')
+    expect(formulaFor('edit')[1].expr).toContain('min')
+    expect(formulaFor('lcs')[1].expr).toContain('max')
+    expect(formulaFor('lcs')[0].when).toBe('if aᵢ = bⱼ')
   })
 })
 
