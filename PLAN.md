@@ -50,9 +50,9 @@ finished table.
 
 ## Milestones
 
-- [ ] chore: plan, license, scaffold
-- [ ] feat: DP core (three generators, backtracks, recurrence formatter) + tests
-- [ ] feat: grid, shuttle animation, controls
-- [ ] feat: inputs, seeded generator, shuffle
-- [ ] feat: backtrace thread, recurrence panel, rolling array view
-- [ ] fix/docs: smoke screenshot, readme, publish
+- [x] chore: plan, license, scaffold
+- [x] feat: DP core (three generators, backtracks, recurrence formatter) + tests
+- [x] feat: grid, shuttle animation, controls
+- [x] feat: inputs, seeded generator, shuffle
+- [x] feat: backtrace thread, recurrence panel, rolling array view
+- [x] fix/docs: smoke screenshot, readme, publish
