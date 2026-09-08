@@ -37,6 +37,7 @@ export function IconButton({ label, className = '', ...rest }: ButtonHTMLAttribu
 export function TextInput({ className = '', ...rest }: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
+      onFocus={rest.type === 'number' ? (e) => e.currentTarget.select() : undefined}
       className={`h-9 w-full rounded-md border border-taupe bg-oat px-2.5 font-mono text-sm text-ink tabular outline-none transition-colors placeholder:text-taupe-deep focus:border-walnut focus:ring-2 focus:ring-walnut/30 ${className}`}
       {...rest}
     />

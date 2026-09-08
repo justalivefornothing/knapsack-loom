@@ -175,7 +175,7 @@ export default function DpGrid({ run, inputs, step, order, maxValue, trace, focu
                   aria-selected={isFocus || undefined}
                   onMouseEnter={() => onFocus({ i, j })}
                   onClick={() => onFocus({ i, j })}
-                  className={`relative grid cursor-crosshair place-items-center font-mono tabular transition-[background-color,color] duration-200 ${
+                  className={`relative grid cursor-crosshair place-items-center font-mono tabular transition-[background-color,color] duration-150 ${
                     isCurrent ? 'z-10 shadow-[0_2px_10px_rgba(43,33,24,0.35)]' : ''
                   } ${dep || isWinner || isFocus ? 'z-[5]' : ''}`}
                   style={{ ...style, outline, outlineOffset: -1 }}
