@@ -4,6 +4,7 @@ import DpGrid from './components/DpGrid'
 import InputsPanel from './components/InputsPanel'
 import RecurrencePanel from './components/RecurrencePanel'
 import ResultPanel from './components/ResultPanel'
+import RollingArray from './components/RollingArray'
 import { Panel } from './components/ui'
 import type { ProblemId } from './dp/recurrence'
 import type { Cell } from './dp/types'
@@ -90,6 +91,10 @@ export default function App() {
             </div>
             <Legend maxValue={maxValue} />
           </Panel>
+
+          {state.rolling && run.kind === 'knapsack' && (
+            <RollingArray run={run} inputs={inputs} step={state.step} maxValue={maxValue} />
+          )}
 
           <div className="grid gap-4 md:grid-cols-2">
             <RecurrencePanel run={run} inputs={inputs} step={state.step} order={order} focus={focus} />
