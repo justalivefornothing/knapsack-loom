@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Controls from './components/Controls'
 import DpGrid from './components/DpGrid'
 import InputsPanel from './components/InputsPanel'
+import RecurrencePanel from './components/RecurrencePanel'
+import ResultPanel from './components/ResultPanel'
 import { Panel } from './components/ui'
 import type { ProblemId } from './dp/recurrence'
 import type { Cell } from './dp/types'
@@ -89,6 +91,10 @@ export default function App() {
             <Legend maxValue={maxValue} />
           </Panel>
 
+          <div className="grid gap-4 md:grid-cols-2">
+            <RecurrencePanel run={run} inputs={inputs} step={state.step} order={order} focus={focus} />
+            <ResultPanel run={run} inputs={inputs} step={state.step} trace={state.trace} />
+          </div>
         </div>
 
         <aside className="space-y-4">
