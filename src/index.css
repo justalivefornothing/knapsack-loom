@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-slab: "Bitter", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-linen: #f3ebdc;
+  --color-linen-deep: #e9dfcb;
+  --color-oat: #f7f1e5;
+  --color-taupe: #b9a688;
+  --color-taupe-deep: #8c7a5e;
+  --color-walnut: #4a3120;
+  --color-ink: #2b2118;
+  --color-ink-soft: #6b5a48;
+  --color-crimson: #a8262b;
+  --color-crimson-soft: #e3b2b3;
+}
+
+html {
+  background: var(--color-linen);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
